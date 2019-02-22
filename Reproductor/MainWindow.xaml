@@ -7,18 +7,19 @@
         mc:Ignorable="d"
         Title="Reproductor" Height="261" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="46,23,0,0" TextWrapping="Wrap" Text="ARCHIVO" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_archivo" HorizontalAlignment="Left" Height="23" Margin="46,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="608"/>
-        <Button x:Name="btn_examinar" Click="btn_examinar_Click"  Content="Examinar" HorizontalAlignment="Left" Margin="677,65,0,0" VerticalAlignment="Top" Width="85"/>
-        <Button x:Name="btn_reproducir" Content="Reproducir" HorizontalAlignment="Left" Margin="46,102,0,0" VerticalAlignment="Top" Width="88" Background="#FFB4F5F5"/>
-        <Button x:Name="btn_pausa" Content="Pausa" HorizontalAlignment="Left" Margin="139,102,0,0" VerticalAlignment="Top" Width="75" Background="#FFB4F5F5"/>
-        <Button x:Name="btn_detener" Content="Detener" HorizontalAlignment="Left" Margin="219,102,0,0" VerticalAlignment="Top" Width="75" Background="#FFB4F5F5"/>
-        <Slider x:Name="sld_reproduccion" HorizontalAlignment="Left" Margin="46,144,0,0" VerticalAlignment="Top" Width="608"/>
-        <TextBlock x:Name="lbl_tiempoTotal" HorizontalAlignment="Left" Margin="626,181,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lbl_tiempoActual" HorizontalAlignment="Left" Margin="47,178,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top"/>
-        <Slider x:Name="sld_volumen" HorizontalAlignment="Left" Margin="737,96,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="95" Width="42"/>
-        <TextBlock HorizontalAlignment="Left" Margin="683,99,0,0" TextWrapping="Wrap" Text="Volumen:" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lbl_porcentajeVolumen" HorizontalAlignment="Left" Margin="704,178,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,26,0,0" TextWrapping="Wrap" Text="ARCHIVO" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_archivo" HorizontalAlignment="Left" Height="23" Margin="31,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="608"/>
+        <Button x:Name="btn_examinar" Click="btn_Archivo"  Content="Examinar" HorizontalAlignment="Left" Margin="662,68,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button x:Name="btn_reproducir" Click="btn_reproducir_Click" Content="Reproducir" HorizontalAlignment="Left" Margin="31,105,0,0" VerticalAlignment="Top" Width="88" Background="#FFB4F5F5"/>
+        <Button x:Name="btn_pausa" Content="Pausa" HorizontalAlignment="Left" Margin="124,105,0,0" VerticalAlignment="Top" Width="75" Background="#FFB4F5F5" Click="btn_pausa_Click"/>
+        <Button x:Name="btn_detener" Content="Detener" HorizontalAlignment="Left" Margin="204,105,0,0" VerticalAlignment="Top" Width="75" Background="#FFB4F5F5" Click="btn_detener_Click"/>
+        <Slider x:Name="sld_reproduccion" HorizontalAlignment="Left" Margin="31,147,0,0" VerticalAlignment="Top" Width="608"/>
+        <TextBlock x:Name="lbl_tiempoTotal" HorizontalAlignment="Left" Margin="611,184,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lbl_tiempoActual" HorizontalAlignment="Left" Margin="32,181,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top"/>
+        <Slider x:Name="sld_volumen" HorizontalAlignment="Left" Margin="722,99,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="95" Width="42"/>
+        <TextBlock HorizontalAlignment="Left" Margin="668,102,0,0" TextWrapping="Wrap" Text="Volumen:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lbl_porcentajeVolumen" HorizontalAlignment="Left" Margin="689,181,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_salida" HorizontalAlignment="Left" Margin="503,102,0,0" VerticalAlignment="Top" Width="136"/>
 
     </Grid>
 </Window>
