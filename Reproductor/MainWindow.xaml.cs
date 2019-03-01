@@ -31,7 +31,14 @@ namespace Reproductor
         AudioFileReader reader;
         //Nuestra comunicacion con la tarjeta de sonido
         WaveOutEvent output;
+
         DispatcherTimer timer;
+        VolumeSampleProvider volume;
+        FadeInOutSampleProvider fades;
+
+        bool fadingout = false;
+
+        bool dragging = false;
 
         public MainWindow()
         {
@@ -90,12 +97,27 @@ namespace Reproductor
             else
             {
                 reader = new AudioFileReader(txt_archivo.Text);
+
+                fades = new FadeInOutSampleProvider(reader, true);
+
+                double milisegundosFadeIn = Double.Parse(txt_DuracionFadeIn.Text) * 1000.0;
+
+                fades.BeginFadeIn(milisegundosFadeIn);
+
+                fadingout = false;
+
                 output = new WaveOutEvent();
+        
 
                 output.DeviceNumber = cb_salida.SelectedIndex;
                 output.PlaybackStopped += Output_PlaybackStopped;
 
-                output.Init(reader);
+                
+                volume = new VolumeSampleProvider(fades);
+
+                volume.Volume = (float)sld_volumen.Value;
+
+                output.Init(volume);
                 output.Play();
 
                 btn_detener.IsEnabled = true;
@@ -140,5 +162,47 @@ namespace Reproductor
                 btn_pausa.IsEnabled = false;
             }
         }
+
+        private void sld_volumen_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(volume != null && output != null && output.PlaybackState != PlaybackState.Stopped)
+            {
+                volume.Volume = 
+                    (float)sld_volumen.Value;
+
+            }
+            if(lbl_porcentajeVolumen != null)
+            {
+                lbl_porcentajeVolumen.Text = ((int)(sld_volumen.Value * 100)).ToString() + "%";
+            }
+        }
+
+        private void sld_reproduccion_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            dragging = true;
+
+        }
+
+        private void sld_reproduccion_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            dragging = false;
+
+        if (reader != null && output != null && (output.PlaybackState != PlaybackState.Stopped))
+            {
+                reader.CurrentTime = TimeSpan.FromSeconds(sld_reproduccion.Value);
+            }
+        }
+
+        private void btn_IniciarFadeOut_Click(object sender, RoutedEventArgs e)
+        {
+            if (!fadingout && fades != null && output != null && output.PlaybackState == PlaybackState.Playing);
+            {
+                fadingout = true;
+                double milisegundosFadeout = double.Parse(txt_DuracionFadeOut.Text) * 1000.0;
+                fades.BeginFadeOut(milisegundosFadeout);
+            }
+        }
+
+      
     }
 }

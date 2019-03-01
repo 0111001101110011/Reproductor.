@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor"
         mc:Ignorable="d"
-        Title="Reproductor" Height="261" Width="800">
+        Title="Reproductor" Height="330.891" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="31,26,0,0" TextWrapping="Wrap" Text="ARCHIVO" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_archivo" HorizontalAlignment="Left" Height="23" Margin="31,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="608"/>
@@ -13,13 +13,18 @@
         <Button x:Name="btn_reproducir" Click="btn_reproducir_Click" Content="Reproducir" HorizontalAlignment="Left" Margin="31,105,0,0" VerticalAlignment="Top" Width="88" Background="#FFB4F5F5"/>
         <Button x:Name="btn_pausa" Content="Pausa" HorizontalAlignment="Left" Margin="124,105,0,0" VerticalAlignment="Top" Width="75" Background="#FFB4F5F5" Click="btn_pausa_Click"/>
         <Button x:Name="btn_detener" Content="Detener" HorizontalAlignment="Left" Margin="204,105,0,0" VerticalAlignment="Top" Width="75" Background="#FFB4F5F5" Click="btn_detener_Click"/>
-        <Slider x:Name="sld_reproduccion" HorizontalAlignment="Left" Margin="31,147,0,0" VerticalAlignment="Top" Width="608"/>
+        <Slider x:Name="sld_reproduccion" HorizontalAlignment="Left" Margin="31,147,0,0" VerticalAlignment="Top" Width="608" ValueChanged="sld_reproduccion_ValueChanged"/>
         <TextBlock x:Name="lbl_tiempoTotal" HorizontalAlignment="Left" Margin="611,184,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top"/>
         <TextBlock x:Name="lbl_tiempoActual" HorizontalAlignment="Left" Margin="32,181,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top"/>
-        <Slider x:Name="sld_volumen" HorizontalAlignment="Left" Margin="722,99,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="95" Width="42"/>
+        <Slider x:Name="sld_volumen" HorizontalAlignment="Left" Margin="722,99,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="95" Width="42" Maximum="1" ValueChanged="sld_volumen_ValueChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="668,102,0,0" TextWrapping="Wrap" Text="Volumen:" VerticalAlignment="Top"/>
         <TextBlock x:Name="lbl_porcentajeVolumen" HorizontalAlignment="Left" Margin="689,181,0,0" TextWrapping="Wrap" Text="0%" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_salida" HorizontalAlignment="Left" Margin="503,102,0,0" VerticalAlignment="Top" Width="136"/>
+        <TextBox x:Name="txt_DuracionFadeIn" HorizontalAlignment="Left" Height="23" Margin="31,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  Text="0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Duración Fade In."/>
+        <TextBlock HorizontalAlignment="Left" Margin="187,233,0,0" TextWrapping="Wrap" Text="Duracion Fade Out (x) :" VerticalAlignment="Top" Width="135"/>
+        <TextBox x:Name="txt_DuracionFadeOut" HorizontalAlignment="Left" Height="23" Margin="187,257,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btn_IniciarFadeOut" Content="Fade Out" HorizontalAlignment="Left" Margin="330,257,0,23" Width="103" Click="btn_IniciarFadeOut_Click"/>
 
     </Grid>
 </Window>
